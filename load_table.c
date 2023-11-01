@@ -8,9 +8,9 @@
 #define DUPLICATE_ID_MSG "load_table duplicate entry: %s\n"
 #define INSERTION_ERROR_MSG "load_table could not create node for %s\n"
 
-int load_table(node **htable, unsigned long int tablesize, char *filename) {
+int load_table(node **htable, unsigned long int table_size, char *filename) {
 	(void) htable; // suppress unused variable warnings
-	(void) tablesize; // TODO: delete these once you start implementation
+	(void) table_size; // TODO: delete these once you start implementation
 	(void) filename;
 
 

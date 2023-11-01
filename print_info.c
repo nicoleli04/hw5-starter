@@ -8,7 +8,7 @@
 #define SHORTEST_MSG "Shortest chain: %lu\n"
 #define EMPTY_MSG "Empty buckets: %lu\n"
 
-void print_info(node **htable, unsigned long tablesize) {
+void print_info(node **htable, unsigned long table_size) {
 	// TODO: walk down the indices of the htable
 	// iterate through each chain and update statistics
 	// print out statistics at end
@@ -20,5 +20,5 @@ void print_info(node **htable, unsigned long tablesize) {
 	// (maximum value for unsigned long int)
 	
 	(void) htable; // suppress unused variable warnings
-	(void) tablesize; // TODO: delete these once you start implementation
+	(void) table_size; // TODO: delete these once you start implementation
 }

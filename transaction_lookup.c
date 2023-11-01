@@ -11,7 +11,7 @@
 
 int main(int argc, char **argv) {
 	int s_flag;
-	unsigned long tablesize;
+	unsigned long table_size;
 	// TODO: parse opts with getopt and initialize these variables 
 	// (see strtoul for parsing unsigned long)
 
