@@ -20,7 +20,7 @@ ASM = hash.S
 CC = gcc
 DEBUG = -g
 WARN = -Wall -Wextra -Werror -Wformat-security
-CFLAGS = -I. -std=gnu11 $(DEBUG) $(WARN) -O0
+CFLAGS = -I. -std=gnu17 $(DEBUG) $(WARN) -O0
 LIBS = 
 
 .PHONY: clean
