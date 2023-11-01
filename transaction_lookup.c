@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 
 	if (/* TODO: call load_table and check if it succeeded */) {
 		fprintf(stderr, "error in load_table\n");
-		free(htable);
+		delete_table(htable, table_size);
 		return EXIT_FAILURE;
 	}
 	
