@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 	// TODO: parse opts with getopt and initialize these variables 
 	// (see strtoul for parsing unsigned long)
 	// handle any bad inputs (missing filename or invalid option flag
-	// by printing out the USAGE_STRING to stderr and exiting:
+	// by printing out the USAGE_STRING to stderr and exiting with failure:
 	// fprintf(stderr, USAGE_STRING, argv[0]); // you can use this line
 
 	
