@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include "node.h"
 
+#define MAX_QUERY_LEN 100
 #define MIN_TABLE_SIZE 3
 #define DEFAULT_TABLE_SIZE 1873
 #define QUERY_SUCCESS_FORMAT "found sale id=%s, purchased_item=%s, cost=%.5f\n" 
