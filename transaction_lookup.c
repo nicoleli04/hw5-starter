@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
 	// 
 	while (fgets(query, MAX_QUERY_LEN + 1, stdin) == query) {
 		// replace the \n, if it exists (for hashing)
-		if (end = strchr(query, '\n')) *end = '\0'; // don't change this line
+		if ((end = strchr(query, '\n'))) *end = '\0'; // don't change this line
 
 		// TODO: read a line from stdin and perform a lookup
 		// if the sale is found, print its contents to stdout
@@ -61,7 +61,6 @@ int main(int argc, char **argv) {
 	// TODO: free all allocated memory associated with the table 
 	// using delete_table()
 	//
-	free(buf);  // free the buffer allocated by getline()
 
 	return EXIT_SUCCESS;
 }
