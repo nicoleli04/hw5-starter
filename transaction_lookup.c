@@ -9,7 +9,7 @@
 #define DEFAULT_TABLE_SIZE 1873
 #define QUERY_SUCCESS_FORMAT "found sale id=%s, purchased_item=%s, cost=%.5f\n" 
 #define QUERY_FAILURE_FORMAT "could not find sale with id=%s\n"
-#define USAGE_STRING "%s [-s] [-t table_size] <filename>"
+#define USAGE_STRING "%s [-s] [-t table_size] <filename>\n"
 
 int main(int argc, char **argv) {
 	int s_flag;
