@@ -3,11 +3,33 @@
 #include "node.h"
 
 node *insert_node(node *front, char *id, char *purchased_item, double cost) {
-	(void) front; // suppress unused variable warnings
-	(void) id; // TODO: delete these once you start implementing insert_node
-	(void) purchased_item;
-	(void) cost;
 	
+	node* new_node = (node*) malloc(sizeof(node));
+
+	if(new_node == NULL){
+		return NULL;
+	}
+
+	new_node->id = (char*)malloc(strlen(id)+1);
+
+	if(new_node->id == NULL){
+		free(new_node);
+		return NULL;
+	}
+	strcpy(new_node->id, id);
+	new_node->purchased_item = (char*)malloc(strlen(purchased_item)+1);
+
+	if(new_node->purchased_item == NULL){
+		free(new_node->id);
+		free(new_node);
+		return NULL;
+	}
+	
+	strcpy(new_node->purchased_item, purchased_item);
+	new_node->cost = cost;
+
+	new_node->next = front;
+
 	// TODO: create a node, copy in the parameter fields
 	// make sure that you do a deep copy
 	
@@ -15,7 +37,7 @@ node *insert_node(node *front, char *id, char *purchased_item, double cost) {
 
 	// TODO: return the new head of the chain if the function succeeded
 	
-	return NULL; // TODO: replace this once you implement
+	return new_node; // TODO: replace this once you implement
 }
 
 

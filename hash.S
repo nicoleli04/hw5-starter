@@ -28,6 +28,11 @@ hashFun:
     ///////////////////////////////////////////////////////
     
     // YOUR CODE GOES HERE
+    LSL r2, r1, #6
+    LSL r3, r1, #16
+    ADD r4, r2, r3
+    ADD r5, r4, r0
+    SUB r0, r5, r1
     
     ///////////////////////////////////////////////////////
     // DO NOT EDIT EPILOGUE BELOW

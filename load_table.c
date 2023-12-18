@@ -9,27 +9,46 @@
 #define INSERTION_ERROR_MSG "load_table could not create node for %s\n"
 
 int load_table(node **htable, unsigned long int table_size, char *filename) {
-	(void) htable; // suppress unused variable warnings
-	(void) table_size; // TODO: delete these once you start implementation
-	(void) filename;
 
+	if(filename == NULL){
+		fprintf(stderr, FILE_OPEN_ERR_MSG, filename);
+		return -1;
+	}
+	
 
-	FILE *fp = NULL;
+	FILE* fp = fopen(filename, "r");
+	if (fp == NULL){
+		fprintf(stderr, FILE_OPEN_ERR_MSG, filename);
+		fclose(fp);
+		return -1;
+	}
 	// TODO: open the file and check that it was successful
 
 	// TODO: loop through the file and read one line at a time using fgets
 	// see manual page for fgets for information on parameters
 	char buf[MAX_LINELEN + 1]; // input buffer for fgets
 	while (fgets(buf, MAX_LINELEN + 1, fp) == buf) {
-		// TODO: for each line, use strtok to break it into columns
-		// (convert the third column to a double)
+    char *id = strtok(buf, " , ");
+    char* item = strtok(NULL, " , ");
+    double cost = atof(strtok(NULL, " , "));
 
-		// TODO: get the corresponding chain for this entry
-		
-		// TODO: check that the node doesn't already exist in table
+		unsigned long hash_code = hash(id) % table_size;
+		node *front = htable[hash_code];
+		node* new_node;
 
-		// TODO: add non-duplicate node to the front of its chain
+		if (node_lookup(front, id) != NULL){
+			fprintf(stderr, DUPLICATE_ID_MSG, id);
+		}
+		else{
+			if((new_node = insert_node(front, id, item, cost)) == NULL){
+				fprintf(stderr, INSERTION_ERROR_MSG, id);
+				return -1;
+			}
+		}
+		htable[hash_code] = new_node;
 
 	}
+	fclose(fp);
 	return 0;
+
 }
